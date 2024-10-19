@@ -58,23 +58,6 @@
  *
  */
 
-/*
- * Instrucoes para compilar:
- *   $gcc exN.c -o exN.x -Wall
- *        -Wextra -ansi -pedantic-errors -g -O0 -DDEBUG=1 -DVERSION="0.1.160612.142044"
- *   ou preferencialmente inclua um makefile e use:
- *   $make
- *
- * Modelo de indentacao:
- * Estilo: --style=allman ou -A1
- *
- * Opcoes: -A1 -s4 -k3 -xj -SCNeUpv
- *
- *  * No vi use:
- *      :% !astyle -A1 -s4 -k3 -xj -SCNeUpv
- *  * No linux:
- *      $astlye -A1 -s4 -k3 -xj -SCNeUpv exN.c
- */
 
 /* ------------------------------------------------------------------------- */
 /* includes */
@@ -85,29 +68,6 @@
 #include "exN.h" /* To be created for this template if needed */
 
 /* #include <time.h> */ /* Time and date functions */
-/* #include <math.h> */ /* Mathematics functions */
-/* #include <string.h> */ /* Strings functions definitions */
-/* #include <dlfcn.h> */ /* Dynamic library */
-/* #include <malloc.h> */ /* Dynamic memory allocation */
-/* #include <unistd.h> */ /* UNIX standard function */
-/* #include <limits.h> */ /* Various C limits */
-/* #include <ctype.h> */ /* Character functions */
-/* #include <errno.h> */ /* Error number codes errno */
-/* #include <signal.h> */ /* Signal processing */
-/* #include <stdarg.h> */ /* Functions with variable arguments */
-/* #include <pthread.h> */ /* Parallel programming with threads */
-/* #include <fcntl.h> */ /* File control definitions */
-/* #include <termios.h> */ /* Terminal I/O definitions POSIX */
-/* #include <sys/stat.h> */ /* File status and information */
-/* #include <float.h> */ /* Float constants to help portability */
-/* #include <setjmp.h> */ /* Bypass standard function calls and return */
-/* #include <stddef.h> */ /* Various types and MACROS */
-/* #include <SWI-Prolog.h> */ /* Prolog integration with C */
-/* #include <ncurses.h> */ /* Screen handling and optimisation functions */
-/* #include <allegro.h> */ /* A game library for graphics, sounds, etc. */
-/* #include <libintl.h> */ /* Internationalization / translation */
-/* #include <locale.h> */ /* MACROS LC_ for location specific settings */
-/* #include "libeco.h" */ /* I/O, Math, Sound, Color, Portable Linux/Windows */
 
 /* ------------------------------------------------------------------------- */
 /**
@@ -143,49 +103,64 @@
  * @date 2016-09-08
  *
  */
-int main(int argc, char *argv[])
-{
-    int opt; /* return from getopt() */
+int a, b;
 
-    IFDEBUG("Starting optarg loop...");
+void p1();
+void p2();
+void p3();
+void p4();
+void p5();
 
-    /* getopt() configured options:
-     *        -h  help
-     *        -V  version
-     *        -v  verbose
-     */
-    opterr = 0;
-    while((opt = getopt(argc, argv, "vhV")) != EOF)
-        switch(opt)
-        {
-            case 'h':
-                help();
-                break;
-            case 'V':
-                copyr();
-                break;
-            case 'v':
-                verb++;
-                break;
-            case '?':
-            default:
-                printf("Type\n\t$man %s\nor\n\t$%s -h\nfor help.\n\n", argv[0], argv[0]);
-                return EXIT_FAILURE;
+int main(void){
+
+    p1();
+
+    if ( a == 1){
+        p3();
+        if ( b == 1){
+            p5();
+
         }
+        else {
+            p4();
+        }
+}
 
-    if(verb)
-        printf("Verbose level set at: %d\n", verb);
+    else {
+        p2();
+}
 
-    exN_init(); /* initialization function */
-
-    /* ...and we are done */
-    /* Write your code here... */
 
     return EXIT_SUCCESS;
 }
 
 /* Write your functions here... */
 
+void p1(){
+    printf("texto inicial + opçoes de escolha: 1-Queijo mofado ou 2-bola d'agua: \n");
+    scanf("%d", &a);
+}
+
+/* ------------------------------------------------------------------------- */
+void p2(){
+    printf("Alex suportou o a bola d'agua e correu atras de voce. voce morreu.\n");
+
+}
+
+/* ------------------------------------------------------------------------- */
+void p3(){
+    printf("Voçe desnorteou o Alex. Voçe deseja 1-fugir ou 2-lutar: \n");
+    scanf("%d", &b);
+}
+/* ------------------------------------------------------------------------- */
+void p4(){
+    printf("Alex chama reforços e todos lutam contra voçe e voce morre.\n");
+}
+
+/* ------------------------------------------------------------------------- */
+void p5(){
+    printf("Voçe conseguiu fugir e esta vivo\n");
+}
 /* ------------------------------------------------------------------------- */
 /**
  * @ingroup GroupUnique
@@ -197,21 +172,6 @@ int main(int argc, char *argv[])
  * @date 2016-09-08
  *
  */
-void help(void)
-{
-    IFDEBUG("help()");
-    printf("%s - %s\n", "exN", "Brief description");
-    printf("\nUsage: %s [-h|-v]\n", "exN");
-    printf("\nOptions:\n");
-    printf("\t-h,  --help\n\t\tShow this help.\n");
-    printf("\t-V,  --version\n\t\tShow version and copyright information.\n");
-    printf("\t-v,  --verbose\n\t\tSet verbose level (cumulative).\n");
-    /* add more options here */
-    printf("\nExit status:\n\t0 if ok.\n\t1 some error occurred.\n");
-    printf("\nTodo:\n\tLong options not implemented yet.\n");
-    printf("\nAuthor:\n\tWritten by %s <%s>\n\n", "Ruben Carlo Benante", "rcb@beco.cc");
-    exit(EXIT_FAILURE);
-}
 
 /* ------------------------------------------------------------------------- */
 /**

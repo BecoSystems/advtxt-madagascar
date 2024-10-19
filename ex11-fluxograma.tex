@@ -1,183 +1,113 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Criação de Fluxograma usando LaTeX
-%
-% Assunto: escrever aqui um comentário com uma
-%          breve explicação do exercício
-%
-% Autores:
-%     Nome do Aluno 1
-%     Nome do Aluno 2
-%     Nome do Aluno 3
-%
-% Coordenação:
-%     Prof. Dr. Ruben Carlo Benante
-%
-% Data: 2024-04-25
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows, positioning}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Para gerar o PDF use o comando make com o makefile configurado:
-%
-%    $ make ext-programa2-benante-sobrenome1-sobrenome2.pdf
-%
-% O conteúdo do makefile é composto dos 3 seguintes comandos que ficam assim automatizados:
-%    $ pdflatex exN-fluxograma.tex -o exN-fluxograma.pdf
-%    $ bibtex biblio
-%    $ pdflatex exN-fluxograma.tex -o exN-fluxograma.pdf
+% Estilos para o fluxograma
+\tikzstyle{startstop} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=red!30]
+\tikzstyle{process} = [rectangle, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=orange!30]
+\tikzstyle{decision} = [diamond, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=green!30]
+\tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=blue!30]
+\tikzstyle{textblock} = [rectangle, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=blue!10]
+\tikzstyle{arrow} = [thick,->,>=stealth]
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% preambulo %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\documentclass[a4paper,12pt]{article} %twocolumn
-\usepackage[left=2.5cm,right=2cm,top=2.5cm,bottom=2cm]{geometry}
-\usepackage[utf8]{inputenc} % letras acentuadas
-\usepackage[portuguese]{babel} % tradução de títulos
-\usepackage[colorlinks]{hyperref}
-\usepackage{tikz} % para adicionar fluxogramas
-\usepackage{algorithm} % ambiente para índice de algoritmos
-\usepackage{algpseudocode} % fonte e estilo do algoritmo
-\usepackage{graphicx} % permite adicionar imagens
-\usepackage{indentfirst} % indenta o primeiro parágrafo também
-\usepackage{url} % permite adicionar links de URLs e emails
-% \usepackage{natbib}
-%[noend]
-
-\DeclareUrlCommand\email{\urlstyle{mm}} % comando para email bonito
-\floatname{algorithm}{Algoritmo} % tradução da palavra algoritimo no ambiente de índice
-
-\usetikzlibrary{shapes.geometric, shapes.symbols,arrows} % ajuste do tikz para incluir formas e setas
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% capa %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\title{Fluxograma: nome do fluxograma}
-\author{Diego Nascimento Dos Santos \\ Autor2 \\ Autor3}
+\title{Fluxograma: Madagascar}
+\author{
+    Diego Nascimento dos Santos \\
+    Autor 2
+}
+\date{18 de outubro de 2024}
 
 \begin{document}
 
 \maketitle
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% definicao dos blocos do fluxograma (tikz) %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\tikzstyle{line} = [draw, -latex']
-\tikzstyle{startend} = [draw, ellipse,fill=red!20, minimum height=2em, node distance=1.55cm]
-\tikzstyle{print} = [tape, fill=blue!20, draw, draw=black, minimum width=3cm, minimum height=1.4cm, text width=4.5em, text centered, tape bend top=none, tape bend height=0.2cm, node distance=1.55cm]
-\tikzstyle{input} = [trapezium, trapezium left angle=60, trapezium right angle=90, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=blue!30, node distance=1.95cm]
-\tikzstyle{process} = [rectangle, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=orange!30, node distance=1.55cm]
-
-\tikzstyle{block} = [rectangle, draw, fill=blue!20, text width=5em, text centered, rounded corners, minimum height=4em, node distance=1.55cm]
-\tikzstyle{decisionb} = [diamond, draw, fill=blue!20, text width=4.5em, text badly centered, inner sep=0pt, node distance=1.55cm]
-\tikzstyle{decision} = [diamond, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=green!30, node distance=2.25cm]
-\tikzstyle{empty} = [circle, fill=white, minimum width=0.01mm, node distance=2.55cm]
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% resumo %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \begin{abstract}
+Programa: Jogo da sobrevivência
 
-\textbf{Assunto:} Programa tal tal
+O programa Madagascar traz um jogo cheio de emoção para o usuário. Neste artigo iremos
+apresentar o fluxograma do jogo.
 
-% descrever em poucas palavras seu projeto aqui
+Após essa modelagem de fluxograma será implementado o jogo em linguagem C.
 
-O programa tal e tal faz isso e isso. Neste artigo iremos apresentar o seu fluxograma completo.
-% e (opcionalmente) o seu algoritmo.
-
-Após a modelagem do fluxograma e desenvolvimento da lógica de programação em algoritmo,
-o programa será implementado na Linguagem de Programação \texttt{C}
-
-\textbf{Local:} Escola Politécnica de Pernambuco - UPE/POLI
-
-\textbf{Órgão Financiador:} N/A
-
-\textbf{Caracterização:} Modelagem, Projeto e Implementação de Software em Linguagem \texttt{C}
-
-% Este é o fim do resumo.
-
+Local: Escola Politécnica de Pernambuco - UPE/POLI \\
+Órgão financiador: N/A \\
+Caracterização: Modelagem, projeto e implementação em linguagem C
 \end{abstract}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% artigo %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% seção de introdução %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introdução}
 
-% Descrever melhor seu projeto aqui
+O programa será modelado em fluxograma em uma primeira fase, em seguida
+sua lógica será desenvolvida em formato de algoritmo, para então
+na terceira fase ser implementado em Linguagem de Programação C.
 
-Este programa faz isso, isso e \texttt{também em fonte mono-espaçada faz isso}.
-
-O programa será modelado em \textit{fluxograma} em uma primeira fase, em seguida
-sua lógica será desenvolvida em formato de \textit{algoritmo}, para então
-na terceira fase ser implementado em Linguagem de Programação \texttt{C}.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% seção de objetivos %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Fluxograma}
 
-% adicionar aqui o fluxograma
+\begin{center}
+\begin{tikzpicture}[node distance=2cm]
 
-\begin{tikzpicture}
-    % colocar nodos
-    \node (inicio) [startend] {Início};
-    \node (intro) [print, below of=inicio] {introdução};
+    % Nós
+    \node (start) [startstop] {Início};
+    \node (intro) [io, below of=start] {introdução};
     \node (obj) [process, below of=intro] {obj};
-    \node (dec1) [decision, below of=obj] {obj == 2};
-    \node (txtMorreu1) [print, right of=dec1, node distance=4cm] {texto morreu};
-    \node (dec1Sim) [circle, draw, fill=yellow!20, below of=dec1, node distance=2.4cm] {2};
-    \node (dec2) [decision, below of=dec1Sim] {vrb == 1};
-    \node (txtMorreu2) [print, right of=dec2, node distance=4cm] {texto morreu};
-    \node (fim) [startend, below of=dec2, node distance=2.4cm] {Fim};
-    \node (dec2Sim) [circle, draw, fill=yellow!20, below of=fim, node distance=2.4cm] {1};
-    \node (txtSobreviveu) [print, below of=dec2Sim] {texto usuário escapou e sobreviveu};
+    \node (dec1) [decision, below of=obj, yshift=-0.5cm] {obj == 2};
+    \node (text1) [textblock, right of=dec1, xshift=3cm] {texto morreu};
+    \node (alex) [textblock, below of=dec1, yshift=-1cm] {texto Alex desorientado e chama ajuda. printa uma tomada de decisão do usuário};
+    \node (vrb) [process, below of=alex, yshift=-0.5cm] {vrb};
+    \node (dec2) [decision, below of=vrb, yshift=-0.5cm] {vrb == 1};
+    \node (text2) [textblock, right of=dec2, xshift=3cm] {texto morreu};
+    \node (escape) [textblock, below of=dec2, yshift=-1cm] {texto usuário escapou e sobreviveu};
+    \node (end) [startstop, below of=escape] {Fim};
 
-    % Desenhar as setas
-    \path [line] (inicio) -- (intro);
-    \path [line] (intro) -- (obj);
-    \path [line] (obj) -- (dec1);
-    \path [line] (dec1) -- node[anchor=south] {n} (txtMorreu1);
-    \path [line] (dec1) -- node[anchor=east] {s} (dec1Sim);
-    \path [line] (dec1Sim) -- (dec2);
-    \path [line] (dec2) -- node[anchor=south] {n} (txtMorreu2);
-    \path [line] (dec2) -- node[anchor=east] {s} (fim);
-    \path [line] (fim) -- (dec2Sim);
-    \path [line] (dec2Sim) -- (txtSobreviveu);
+    % Setas
+    \draw [arrow] (start) -- (intro);
+    \draw [arrow] (intro) -- (obj);
+    \draw [arrow] (obj) -- (dec1);
+    \draw [arrow] (dec1) -- node[anchor=south] {n} (text1);
+    \draw [arrow] (dec1) -- node[anchor=east] {s} (alex);
+    \draw [arrow] (alex) -- (vrb);
+    \draw [arrow] (vrb) -- (dec2);
+    \draw [arrow] (dec2) -- node[anchor=south] {n} (text2);
+    \draw [arrow] (dec2) -- node[anchor=east] {s} (escape);
+    \draw [arrow] (escape) -- (end);
+
 \end{tikzpicture}
+\end{center}
 
-\clearpage % inicia próxima seção em nova página
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% seção de justificativa %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \section{Algoritmo}
+\section{Detalhamento dos Autores}
 
-% adicionar aqui o algoritmo (opcional)
+\subsection{Discentes}
 
-% \clearpage % inicia próxima seção em nova página
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Autores %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section*{Detalhamento dos Autores}
+\begin{itemize}
+    \item Nome completo: Diego Nascimento dos Santos
+    \item Email: \texttt{dns@upe.br}
+    \item Endereço: R. 14, nº 16; Alameda-Paulista - Paulista-PE
+    \item Matrícula: CA0211-1
+    \item CPF: 113.367.974-95
+    \item RG: 10.128-200
+    \item Telefone: (81) 9 8692-4449
+    \item Currículo Lattes:
+\end{itemize}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Discentes %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection*{Discentes}
+\begin{itemize}
+    \item Nome completo:
+    \item Email: \texttt{}
+    \item Endereço:
+    \item Matrícula:
+    \item CPF:
+    \item RG:
+    \item Telefone:
+    \item Currículo Lattes:
+\end{itemize}
 
-\begin{enumerate}
-    \item \textbf{Nome Completo:} Fulano de Tal Um
-    \begin{description}
-        \item [Email:] \email{blabla@poli.br}
-        \item [Endereço:]
-        \item [Matrícula:]
-        \item [CPF:]
-        \item [RG:]
-        \item [Telefone:]
-        \item [Currículo Lattes:] \url{http://lattes.cnpq.br/nnnnn}
-    \end{description}
+\subsection{Docentes}
 
-    \item \textbf{Nome Completo:} Fulano de Tal Dois
-    \begin{description}
-        \item [Email:] \email{blabla@poli.br}
-        \item [Endereço:]
-        \item [Matrícula:]
-        \item [CPF:]
-        \item [RG:]
-        \item [Telefone:]
-        \item [Currículo Lattes:] \url{http://lattes.cnpq.br/nnnnn}
-    \end{description}
-\end{enumerate}
+\begin{itemize}
+    \item Nome completo: Ruben Carlo Benante
+    \item Email: \texttt{rcb@upe.br}
+    \item Matrícula: 11238-0
+    \item Currículo Lattes: \url{http://lattes.cnpq.br/3366717378277623}
+\end{itemize}
 
 \end{document}

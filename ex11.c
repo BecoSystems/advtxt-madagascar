@@ -137,13 +137,13 @@ int main(void){
 /* Write your functions here... */
 
 void p1(){
-    printf("texto inicial + opçoes de escolha: 1-Queijo mofado ou 2-bola d'agua: \n");
+    printf("Em um belo dia ensolarado você está caminhando \nquando de repente da de cara com o leão Alex furioso \no que você utiliza para tentar fugir dele\n 1-Queijo mofado ou 2-bola d'agua: \n");
     scanf("%d", &a);
 }
 
 /* ------------------------------------------------------------------------- */
 void p2(){
-    printf("Alex suportou o a bola d'agua e correu atras de voce. voce morreu.\n");
+    printf("Alex suportou o a bola d'agua e correu atras de voce.\n VOCÊ MORREU.\n");
 
 }
 
@@ -154,7 +154,7 @@ void p3(){
 }
 /* ------------------------------------------------------------------------- */
 void p4(){
-    printf("Alex chama reforços e todos lutam contra voçe e voce morre.\n");
+    printf("Alex chama reforços e todos lutam contra você.\n VOCÊ MORREU!!.\n");
 }
 
 /* ------------------------------------------------------------------------- */

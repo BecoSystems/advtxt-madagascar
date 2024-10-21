@@ -1,33 +1,26 @@
 algoritmo madagascar;
 
-     início();
+variáveis
+    objetoEscolhido: inteiro;
+    verboEscolhido: inteiro;
+fim-variáveis
 
-        inteiro objetoEscolhido
-        cadeia verboEscolhido
+início
+    imprima("Em um belo dia ensolarado você está caminhando quando de repente dá de cara com o leão Alex furioso, o que você utiliza para tentar fugir dele \n 1-Queijo mofado \n 2-Bolha d'agua\n");
+    objetoEscolhido:= leia();
 
-        escreva("Em um belo dia ensolarado você esta caminhando quando de repente da de cara com o leao Alex furioso, o que voce utiliza para tentar fugir dele \n 1-Queijo mofado 2-Bolha d'agua")
-        leia(objetoescolhido)
+    se (objetoEscolhido <> 2) então
+        imprima("Você desnorteou Alex. Você deseja 1-fugir ou 2-lutar: \n");
+        verboEscolhido:= leia();
 
+        se (verboEscolhido <> 2) então
+            imprima("Você conseguiu fugir e está vivo\n");
 
-        se (objetoEscolhido ==1) então
+        senão
+            imprima("Alex chama reforços e todos lutam contra você. Você morreu");
+        fim-se
 
-        escreva("Voce desnorteou Alex. Voce deseja 1-fugir ou 2-lutar: \n")
-        leia(verboescolhido)
-
-        se (verboEscolhido == "1") então
-
-        escreva("Voce conseguiu fugir e esta vivo\n")
-        retorne
-
-
-    senao
-        escreva("Alex chama reforços e todos lutam contra voce. Voce morreu \n")
-        retorne
-
-
-        senao se (objetoEscolhido == 2) então
-
-            escreva("Alex suportou a bola d'agua e correu atras de voce. Voce morreu \n")
-            retorne
-
-
+    senão
+        imprima("Alex suportou a bolha d'água e correu atrás de você. Você morreu\n");
+    fim-se
+fim
